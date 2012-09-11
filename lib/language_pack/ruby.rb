@@ -54,6 +54,7 @@ class LanguagePack::Ruby < LanguagePack::Base
       install_binaries
       run_assets_precompile_rake_task
       generate_jekyll_site
+      run_assets_postcompile_rake_task
     end
   end
 
@@ -453,6 +454,15 @@ params = CGI.parse(uri.query || "")
       pipe("env PATH=$PATH:bin bundle exec rake assets:precompile 2>&1")
     end
   end
+
+
+  def run_assets_postcompile_rake_task
+    if rake_task_defined?("assets:postcompile")
+      topic "Running: rake assets:postcompile"
+      pipe("env PATH=$PATH:bin bundle exec rake assets:postcompile 2>&1")
+    end
+  end
+
 
   def generate_jekyll_site
     puts "Building jekyll site"
