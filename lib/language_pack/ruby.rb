@@ -460,6 +460,9 @@ params = CGI.parse(uri.query || "")
     if rake_task_defined?("assets:postcompile")
       topic "Running: rake assets:postcompile"
       pipe("env PATH=$PATH:bin bundle exec rake assets:postcompile 2>&1")
+      unless $? == 0
+        error "assets:postcompile failed"
+      end
     end
   end
 
