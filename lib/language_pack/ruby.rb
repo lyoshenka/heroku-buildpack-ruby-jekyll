@@ -712,11 +712,18 @@ params = CGI.parse(uri.query || "")
 
 
   def run_assets_postcompile_rake_task
-    if rake_task_defined?("assets:postcompile")
+    instrument 'ruby.run_assets_postcompile_rake_task' do
+
+      postcompile = rake.task("assets:postcompile")
+      return true unless postcompile.is_defined?
+
       topic "Running: rake assets:postcompile"
-      pipe("env PATH=$PATH:bin bundle exec rake assets:postcompile 2>&1")
-      unless $? == 0
-        error "assets:postcompile failed"
+      postcompile.invoke
+      if postcompile.success?
+        puts "Asset postcompilation completed (#{"%.2f" % postcompile.time}s)"
+      else
+        log "assets_postcompile", :status => "failure"
+        error "Postcompiling assets failed."
       end
     end
   end
