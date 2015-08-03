@@ -3,6 +3,9 @@
     "sharpstone/asset_precompile_fail",
     "sharpstone/asset_precompile_pass",
     "sharpstone/asset_precompile_not_found",
+    "sharpstone/database_url_expected_in_rakefile",
+    "sharpstone/connect_to_database_on_first_push",
+    "sharpstone/no_rakefile",
     "sharpstone/bad_rakefile",
     "sharpstone/mri_187_no_rake",
     "sharpstone/mri_187_rake",
@@ -18,15 +21,23 @@
   ],
   "ruby": [
     "sharpstone/mri_187",
+    "sharpstone/mri_193_p547",
     "sharpstone/ruby_193_jruby_173",
-    "sharpstone/ruby_193_jruby_176"
+    "sharpstone/ruby_193_jruby_176",
+    "sharpstone/ruby_193_jruby_17161",
+    "sharpstone/ruby_193_jruby_17161_jdk7",
+    "sharpstone/ruby_193_jruby_17161_jdk8",
+    "sharpstone/jruby-minimal",
+    "sharpstone/empty-procfile",
+    "sharpstone/bad_ruby_version"
   ],
   "rack": [
     "sharpstone/default_ruby",
     "sharpstone/mri_187_nokogiri",
     "sharpstone/mri_192",
     "sharpstone/mri_193",
-    "sharpstone/mri_200"
+    "sharpstone/mri_200",
+    "sharpstone/mri_214"
   ],
   "rails2": [
     "sharpstone/rails23_mri_187"
@@ -44,5 +55,17 @@
     "sharpstone/rails3-to-4-no-bin",
     "sharpstone/rails4_windows_mri193",
     "sharpstone/rails4-fail-assets-compile"
+  ],
+  "rails41": [
+    "sharpstone/rails41_scaffold"
+  ],
+  "rails42": [
+    "sharpstone/rails42_scaffold"
+  ],
+  "rails5": [
+    "sharpstone/rails5"
+  ],
+  "multibuildpack": [
+    "sharpstone/node_multi"
   ]
 }
